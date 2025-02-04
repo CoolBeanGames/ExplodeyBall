@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfjdpjr3je7dq"]
+
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_txu8t"]
+[ext_resource type="Script" path="res://scripts/Game_Manager/State_Machine/countdown_state.gd" id="2_q72gx"]
+[ext_resource type="Script" path="res://scripts/Game_Manager/State_Machine/gameplay_state.gd" id="3_0e105"]
+[ext_resource type="Script" path="res://scripts/Game_Manager/State_Machine/gameover_state.gd" id="4_aesmw"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_txu8t")
+
+[node name="Game_State" type="Node" parent="."]
+
+[node name="Godot_Splash" type="Node" parent="Game_State"]
+
+[node name="CBG_Splash" type="Node" parent="Game_State"]
+
+[node name="Title_Screen" type="Node" parent="Game_State"]
+
+[node name="Load_Game" type="Node" parent="Game_State"]
+
+[node name="Count_Down" type="Node" parent="Game_State"]
+script = ExtResource("2_q72gx")
+
+[node name="Gameplay" type="Node" parent="Game_State"]
+script = ExtResource("3_0e105")
+
+[node name="Game_over" type="Node" parent="Game_State"]
+script = ExtResource("4_aesmw")
