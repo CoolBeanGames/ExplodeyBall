@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://bevlsfcxmc0op"]
+[gd_scene load_steps=3 format=4 uid="uid://bevlsfcxmc0op"]
 
 [ext_resource type="TileSet" uid="uid://dqo3lfmkeckgc" path="res://Tiles/gameplay.tres" id="1_dkgev"]
+[ext_resource type="PackedScene" uid="uid://1iyhssgf0lha" path="res://scenes/Player/Player.tscn" id="2_mr5yt"]
 
 [node name="Game" type="Node2D"]
 
@@ -14,6 +15,9 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAAEAAAABAAAAAAAAAAIAAAABAAA
 tile_set = ExtResource("1_dkgev")
 rendering_quadrant_size = 64
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(561, 297)
+[node name="Player" parent="." instance=ExtResource("2_mr5yt")]
+position = Vector2(561, 300)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -3)
 zoom = Vector2(3, 3)

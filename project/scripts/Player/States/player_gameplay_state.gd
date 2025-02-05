@@ -5,6 +5,19 @@ func _initialize(manager : player_manager):
 	super._initialize(manager)
 
 func _update(delta: float):
+	#update our input values
+	_manager.input.x = Input.get_axis("left","right")
+	_manager.input.y = Input.get_axis("up","down")
+	
+	if _manager.input != Vector2.ZERO:
+		_manager.direction = _manager.input.normalized()
+		
+	if _manager.input:
+		_manager.velocity = _manager.input * _manager.player_move_speed
+	else:
+		_manager.velocity.x = move_toward(_manager.velocity.x, 0, _manager.player_move_speed )
+		_manager.velocity.y = move_toward(_manager.velocity.y, 0, _manager.player_move_speed )
+	_manager.move_and_slide()
 	super._update(delta)
 
 func _fixed_update(delta: float):
