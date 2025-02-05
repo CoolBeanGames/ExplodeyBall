@@ -2,8 +2,8 @@ extends game_state_base
 class_name gameover_state
 
 
-func _init(manager : game_manager) -> void:
-	super._init(manager)
+func _initialize(manager : game_manager) -> void:
+	super._initialize(manager)
 
 func _update(delta: float) -> void:
 	super._update(delta)

@@ -3,8 +3,8 @@ class_name countdown_state
 #made this change to test commit
 #a second change to test SSH
 
-func _init(manager : game_manager) -> void:
-	super._init(manager)
+func _initialize(manager : game_manager) -> void:
+	super._initialize(manager)
 
 func _update(delta: float) -> void:
 	super._update(delta)

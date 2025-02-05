@@ -3,18 +3,19 @@ class_name game_manager
 
 #definitions for the states
 var current_state : game_state_base
-@onready var gameplay : gameplay_state = $Game_State/Gameplay
-@onready var countdown : countdown_state = $Game_State/Count_Down
-@onready var game_over : gameover_state = $Game_State/Game_over
+@onready var gameplay : gameplay_state = $Game_State/Gameplay as gameplay_state
+@onready var countdown : countdown_state = $Game_State/Count_Down as countdown_state
+@onready var game_over : gameover_state = $Game_State/Game_over as gameover_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	gameplay._init(self)
-	countdown._init(self)
-	game_over._init(self)
+	gameplay._initialize(self)
+	countdown._initialize(self)
+	game_over._initialize(self)
 	
 	current_state = gameplay
 	current_state._enter_state()
+	GlobalReferences._game_manager = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
