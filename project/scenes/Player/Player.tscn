@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://1iyhssgf0lha"]
+
+[ext_resource type="Script" path="res://scripts/Player/player_manager.gd" id="1_jc306"]
+[ext_resource type="Texture2D" uid="uid://3n1biywnyetq" path="res://icon.svg" id="2_n3am7"]
+[ext_resource type="Script" path="res://scripts/Player/States/player_gameplay_state.gd" id="3_rwyta"]
+[ext_resource type="Script" path="res://scripts/Player/States/player_idle_state.gd" id="3_w4uq5"]
+[ext_resource type="Script" path="res://scripts/Player/States/player_freeze_state.gd" id="4_lv6ha"]
+[ext_resource type="Script" path="res://scripts/Player/States/player_attacking_state.gd" id="5_4ctaf"]
+[ext_resource type="Script" path="res://scripts/Player/States/player_paused_state.gd" id="5_4lf1k"]
+[ext_resource type="Script" path="res://scripts/Player/States/player_dead_state.gd" id="6_xq2ca"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j33w7"]
+radius = 65.0
+height = 148.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_jc306")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_j33w7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_n3am7")
+
+[node name="States" type="Node" parent="."]
+
+[node name="idle" type="Node" parent="States"]
+script = ExtResource("3_w4uq5")
+
+[node name="freeze" type="Node" parent="States"]
+script = ExtResource("4_lv6ha")
+
+[node name="paused" type="Node" parent="States"]
+script = ExtResource("5_4lf1k")
+
+[node name="gameplay" type="Node" parent="States"]
+script = ExtResource("3_rwyta")
+
+[node name="attacking" type="Node" parent="States"]
+script = ExtResource("5_4ctaf")
+
+[node name="dead" type="Node" parent="States"]
+script = ExtResource("6_xq2ca")
