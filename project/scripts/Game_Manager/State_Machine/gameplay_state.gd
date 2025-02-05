@@ -13,6 +13,7 @@ func _fixed_update(delta: float) -> void:
 
 func _enter_state() -> void:
 	print("entering gameplay state")
+	GlobalReferences._scene_loader._load_scene(GlobalReferences._scene_loader.gameplay_scene)
 	super._enter_state()
 
 func _exit_state() -> void:

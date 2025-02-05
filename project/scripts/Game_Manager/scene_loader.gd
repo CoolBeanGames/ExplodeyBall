@@ -5,6 +5,8 @@ class_name scene_loader
 ##TODO: Replace with packed scene references here
 ##@export var scene_name : PackedScene
 ##then assign in the inspector
+@export var gameplay_scene : PackedScene
+
 signal on_load
 signal on_unload(scene_name : String)
 signal on_add(scene_name : String)
