@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name player_manager
 
 @export var current_state : player_state_base
+@export var prev_state : player_state_base
 ###states
 @onready var idle_state : player_idle_state = $States/idle
 @onready var freeze_state : player_freeze_state = $States/freeze

@@ -27,6 +27,7 @@ func _exit_state():
 	pass
 
 func next_state(new_state : player_state_base):
+	_manager.prev_state=self
 	state_change_requested.emit()
 	_exit_state()
 	new_state._enter_state()

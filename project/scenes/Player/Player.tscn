@@ -39,5 +39,9 @@ script = ExtResource("3_rwyta")
 [node name="attacking" type="Node" parent="States"]
 script = ExtResource("5_4ctaf")
 
+[node name="attack timer" type="Timer" parent="States/attacking"]
+
 [node name="dead" type="Node" parent="States"]
 script = ExtResource("6_xq2ca")
+
+[connection signal="timeout" from="States/attacking/attack timer" to="States/attacking" method="_on_attack_timer_timeout"]
